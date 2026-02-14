@@ -65,7 +65,6 @@ export default function HeroSection() {
                       },
                     },
                   },
-                  item: transitionVariants.item,
                 }}
                 className="mt-12"
               >
