@@ -26,13 +26,6 @@ const transitionVariants = {
 };
 
 export default function HeroSection() {
-  const transitionVariants = {
-    item: {
-      hidden: { opacity: 0, y: 20 },
-      visible: { opacity: 1, y: 0 },
-    },
-  };
-
   return (
     <>
       <HeroHeader />
@@ -72,7 +65,7 @@ export default function HeroSection() {
                       },
                     },
                   },
-                  ...transitionVariants,
+                  item: transitionVariants.item,
                 }}
                 className="mt-12"
               >
@@ -89,6 +82,7 @@ export default function HeroSection() {
                         className="size-6 text-foreground/70 group-hover:text-primary transition-colors"
                         viewBox="0 0 24 24"
                         fill="currentColor"
+                        aria-label="Android app"
                       >
                         <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997 0-.5512.4482-.9997.9993-.9997.5512 0 .9993.4485.9993.9997 0 .5511-.4481.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997 0-.5512.4482-.9997.9993-.9997.5512 0 .9993.4485.9993.9997 0 .5511-.4481.9997-.9993.9997m11.863-6.1365l2.054-3.5556c.1585-.2743.0646-.6237-.2097-.7822-.2741-.1585-.6235-.0646-.782.2097l-2.075 3.5939c-1.2663-.574-2.657-.925-4.128-.925-1.471 0-2.8617.351-4.128.925L6.573 5.0768c-.1585-.2743-.5079-.3682-.782-.2097-.2743.1585-.3682.5079-.2097.7822l2.054 3.5556c-1.7077 1.153-2.842 2.911-2.842 4.8345v.083c0 .4142.3358.75.75.75h13.342c.4142 0 .75-.3358.75-.75v-.083c0-1.9235-1.1343-3.6815-2.842-4.8345" />
                       </svg>
@@ -110,7 +104,7 @@ export default function HeroSection() {
                       {/* Download arrow SVG */}
                       <div className="bg-primary/10 p-2 rounded-full group-hover:bg-primary/20 transition-colors">
                         <svg
-                          title="Download APK"
+                          aria-label="Download"
                           className="size-4 text-primary"
                           viewBox="0 0 24 24"
                           fill="none"
