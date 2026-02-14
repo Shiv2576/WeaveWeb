@@ -1,6 +1,13 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { Shield, WifiOff, FolderClosed, Zap, FileStack } from "lucide-react";
+import {
+  Shield,
+  WifiOff,
+  FolderClosed,
+  Zap,
+  FileStack,
+  type LucideIcon,
+} from "lucide-react";
 import Image from "next/image";
 import { ReactNode } from "react";
 
