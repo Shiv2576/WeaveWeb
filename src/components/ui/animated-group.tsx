@@ -23,8 +23,7 @@ export type AnimatedGroupProps = {
     item?: Variants;
   };
   preset?: PresetType;
-  as?: React.ElementType;
-  asChild?: boolean; // Changed from React.ElementType to boolean
+  as?: keyof HTMLElementTagNameMap; // Changed to specific type
 };
 
 const defaultContainerVariants: Variants = {
@@ -106,7 +105,6 @@ function AnimatedGroup({
   variants,
   preset,
   as = "div",
-  asChild = false, // Changed default to false
 }: AnimatedGroupProps) {
   const selectedVariants = {
     item: addDefaultVariants(preset ? presetVariants[preset] : {}),
@@ -115,16 +113,9 @@ function AnimatedGroup({
   const containerVariants = variants?.container || selectedVariants.container;
   const itemVariants = variants?.item || selectedVariants.item;
 
-  const MotionComponent = React.useMemo(
-    () => motion.create(as as keyof JSX.IntrinsicElements),
-    [as],
-  );
-
-  // If asChild is true, we might want to render children directly or use a different approach
-  // For simplicity, we'll ignore asChild for now or you can implement it differently
-
+  // Simple approach: use motion.div always
   return (
-    <MotionComponent
+    <motion.div
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -135,7 +126,7 @@ function AnimatedGroup({
           {child}
         </motion.div>
       ))}
-    </MotionComponent>
+    </motion.div>
   );
 }
 
